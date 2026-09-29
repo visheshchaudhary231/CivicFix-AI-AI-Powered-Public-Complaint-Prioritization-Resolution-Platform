@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title %}Authority dashboard — CivicFix AI{% endblock %}
+{% block content %}
+
+<section class="intro">
+  <p class="kicker">AUTHORITY VIEW</p>
+  <h1>Every report, sorted and prioritized.</h1>
+  <p class="lede">Live view of everything citizens have submitted — filter by category or status, update progress, and see where the load is concentrated.</p>
+</section>
+
+<div class="stats" id="stats"></div>
+
+<div class="charts">
+  <div class="card chart-card">
+    <h4>By category</h4>
+    <canvas id="catChart" height="180"></canvas>
+  </div>
+  <div class="card chart-card">
+    <h4>By priority</h4>
+    <canvas id="prioChart" height="180"></canvas>
+  </div>
+</div>
+
+<div class="card table-card">
+  <div class="filters">
+    <select id="fCat"><option value="">All categories</option></select>
+    <select id="fStatus">
+      <option value="">All statuses</option>
+      <option>Submitted</option><option>Assigned</option><option>In Progress</option><option>Resolved</option>
+    </select>
+  </div>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Complaint</th><th>Category</th><th>Priority</th><th>Location</th><th>Department</th><th>Status</th></tr></thead>
+      <tbody id="tbody"></tbody>
+    </table>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.4/chart.umd.min.js"></script>
+<script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+{% endblock %}

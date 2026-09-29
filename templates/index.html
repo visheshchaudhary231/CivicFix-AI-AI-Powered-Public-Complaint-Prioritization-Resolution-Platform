@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %}Report a problem — CivicFix AI{% endblock %}
+{% block content %}
+
+<section class="intro">
+  <p class="kicker">CITIZEN REPORT</p>
+  <h1>Tell us what's wrong.<br>We'll route it to the right desk.</h1>
+  <p class="lede">Describe the problem in your own words. CivicFix AI classifies it, sets a priority, checks for duplicate reports, and sends it straight to the department that handles it.</p>
+</section>
+
+<section class="card form-card">
+  <label for="text">What's the problem?</label>
+  <textarea id="text" placeholder="e.g. There is a large pothole near the college gate. It is dangerous at night."></textarea>
+
+  <div class="row">
+    <div>
+      <label for="loc">Location</label>
+      <input type="text" id="loc" placeholder="e.g. College Road, Sector 12">
+    </div>
+    <div>
+      <label for="img">Photo (optional)</label>
+      <input type="file" id="img" accept="image/*">
+    </div>
+  </div>
+
+  <button class="btn-primary" onclick="submitComplaint()">Submit complaint</button>
+  <p id="formError" class="form-error"></p>
+</section>
+
+<section class="card result-card" id="result">
+  <p class="kicker">AI ASSESSMENT</p>
+  <div class="badges" id="badges"></div>
+  <p class="summary" id="summary"></p>
+  <p class="dept" id="dept"></p>
+  <div class="warn" id="dupWarn"></div>
+</section>
+
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+{% endblock %}
