@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CivicFix AI — From Complaint to Action</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,500;0,600;1,500&family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="mplad.css">
+</head>
+<body>
+
+  <div class="hero-band">
+    <div class="wrap hero-inner">
+      <div class="brand">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M12 2C7.6 2 4 5.6 4 10c0 6 8 12 8 12s8-6 8-12c0-4.4-3.6-8-8-8z" stroke="#C67A2E" stroke-width="1.6"/><path d="M9 10.5l2 2 4-4.5" stroke="#C67A2E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span>CivicFix AI</span>
+      </div>
+      <nav>
+        <button class="navbtn active" data-view="report">Report a Problem</button>
+        <button class="navbtn" data-view="dashboard">Authority Dashboard</button>
+        <button class="navbtn" data-view="about">How it Works</button>
+      </nav>
+    </div>
+  </div>
+
+  <main class="wrap page">
+
+    <!-- ===================== REPORT VIEW ===================== -->
+    <section id="view-report" class="view active">
+      <p class="kicker">CITIZEN REPORT</p>
+      <h1>Tell us what's wrong.<br>We'll route it to the right desk.</h1>
+      <p class="lede">Describe the problem in plain language. Our AI pipeline classifies it, sets a priority, checks for duplicates and routes it to the right department — instantly.</p>
+
+      <div class="card">
+        <label for="text">What's the problem?</label>
+        <textarea id="text" placeholder="e.g. There is a large pothole near the college gate. It is dangerous at night."></textarea>
+
+        <div class="row">
+          <div>
+            <label for="loc">Location</label>
+            <input type="text" id="loc" placeholder="e.g. College Road, Sector 12">
+          </div>
+          <div>
+            <label for="img">Photo (optional)</label>
+            <input type="file" id="img" accept="image/*" onchange="previewImage(event)">
+            <div id="imgPreviewWrap"></div>
+          </div>
+        </div>
+
+        <button class="btn-primary" onclick="submitComplaint()">Submit Complaint</button>
+        <p id="formError" class="form-error"></p>
+      </div>
